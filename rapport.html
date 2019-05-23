@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Rapport SIA - Space Wolf</title>
+    <link href="rapport/css/styleRapport.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <div id="banniere">
+            <img class="banner" src="rapport/images/banner.jpg" alt="banner" />
+        </div>
+    </header>
+        <section>
+            <div id="Titre" >
+                <span>Projet SIA - Space Wolf</span>
+            </div>
+        </section>
+        <div id="Introduction">
+            <h1 style="color : rgb(0, 0, 0)">INTRODUCTION :</h1>
+            <p id="IntroductionTexte">
+                Pour ce projet, nous devions développer un clone 3D du jeu Asteroid et produire un rapport sous forme d'un site web.
+                Asteroids est un jeu vidéo de type shoot 'em up édité par Atari Inc. en 1979 sur borne d'arcade. Le jeu a connu un 
+                important succès aux États-Unis et au Japon, et demeure considéré comme un classique de l'histoire du jeu vidéo.
+            </p>
+        </div>
+        <div id="Deroulement">
+            <h1 style="color : rgb(0, 0, 0)">DEROULEMENT DU JEU :</h1>
+            <div id="DeroulementTexte">
+                <p>
+                    Mon jeu comporte plusieurs niveaux, 10 pour être exact, chacun de ses niveaux ayant des 
+                    originalités. Une fois tous les ennemis d'un niveau détruis, on passe au niveau suivant.
+                </p>
+                <img id="imageJeu" src="rapport/images/AfficheNiveau.png" alt="affichage de niveau">
+                <p>
+                    Une fois tous les niveaux parcouru et terminé, nous avons la possibilité de retourné
+                    à l'écran titre et de recommencé.
+                </p>
+                <img id="imageJeu" src="rapport/images/Fin.png" alt="affichage de niveau">
+            </div>
+        </div>
+        <div id="Technologie">
+            <h1 style="color :rgb(0, 0, 0)">TECHNOLOGIE :</h1>
+            <div id="TechnologieTexte">
+                <h2>THREE.js :</h2>
+                <p>Cette bibliothèque nous à été imposé, elle permet de crée un scene 3D
+                    en js et d'y ajouter/animer des objet 3D.
+                </p>
+                <a href="https://threejs.org/">Three.js</a>
+                <h2>THREEX.js :</h2>
+                <p>Cette API, basée sur Three.js, est dédiée au jeu vidéo. Dans mon cas, 
+                    les fonctions que j'ai utilisé sont THREEx.Fullscreen, THREEx.WindowResize 
+                    et THREEx.screenshot permettant respectivement l’affichage en plein écran, 
+                    d’adapter dynamiquement la taille de la fenêtre et la capture d’écran.
+                </p>
+                <a href="http://www.threejsgames.com/extensions/">Threex.js</a>
+                <h2>KEYDROW.js :</h2>
+                <p>
+                    Cette API m'a permis de géré les touche clavier. Je l'ai choisi car plutôt que la manière
+                    classique,elle permet de gérer le fait de rester appuyer sur une touche, relâché la touche, etc.
+                </p>
+                <a href="https://jeremyckahn.github.io/keydrown/">Keydrow.js</a>
+                <h2>HOWLER.js :</h2>
+                <p>
+                    Cet API permet une meilleure gestion des musiques, notamment grace aux méthode
+                    "fades in", "fade out" qui permet une transition douce.
+                </p>
+                <a href="https://howlerjs.com/">Howler.js</a>
+            </div>
+        </div>
+        <div id="Orga">
+                <h1 style="color:rgb(0, 0, 0)">ACHITECTURE ET ORGANISATION :</h1>
+                <div id="OrgaTexte">
+                    <h2>Arborescence :</h2>
+                    <p>
+                        Mon projet respecte l'arborescence  de fichiers comme spécifié dans le 
+                        cahier des charges :
+                    </p>
+                    <img id="image2" src="rapport/images/arbo.png">
+                    <h2>Code :</h2>
+                    <p>
+                        Tout d'abord, j'était partie dans l'idée d'écrire tout mon code de 
+                        manière impérative. Mais au fil du temps, il était de plus en plus
+                        difficile de s'y retrouvé , donc j'ai décidé d'organisé mon code comme si le 
+                        paradigme de programmation était Orienté Objet.
+                        Plusieurs source ont été utile pour m'aider dans cette tache :
+                        <ul>
+                            <li><a href="https://blog.xebia.fr/2013/06/10/javascript-retour-aux-bases-constructeur-prototype-et-heritage/">Xebia</a></li>
+                            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create">MDN Web doc</a></li>
+                        </ul> 
+                    </p>
+                    <p>
+                        Le fichier "enterPoint.js" est le point d'entrée du programme. il instancie un Main()
+                        et démarre la boucle "GameLoop" qui lance les animations.
+                    </p>
+                    <p>
+                        Le fichier "Main.js" est considéré comme ma "classe principale". C'est depuis cette classe
+                        que tous mes objets son load et que toutes les autres "classes" sont instanciés.
+                        Cette classe hérite de THREE.Scene, ce qui me permet de gérer plus facilement les objets 
+                        de ma scène (déplacement, intégration etc.). Lécriture de "this" est donc, avec cette méthode,
+                        équivalent à l'écriture de "this" d'un "THREE.Scene".
+                    </p>
+                    <p>
+                        Les autres fichiers, à savoir "interface.js" et "son.js" me permettent de géré, depuis le main,
+                        les différents affichages et les différents sons du jeu.
+                    </p>
+                </div>
+            </div>
+        <div id="Graphisme">
+            <h1 style="color :rgb(0, 0, 0)">GRAPHISME :</h1>
+            <div id="GraphismeTexte">
+                <h2>Objets :</h2>
+                <p>
+                    Pour les objets "principaux", les plus visibles, il sagit d'objet 3D au format dae 
+                    importé sur la scène. Le reste, les tirs, les jokers etc. il s'agit d'objet produit
+                    directement grâce à Three.js.
+                </p>
+                <p>
+                    Afin de représenté les bordures du plateau de jeu, j'ai fait le choix de positionné des 
+                    cylindre rouge chargé grâce à Three.js, de façon à ce que les bordure du jeu soit visible par le joueur.
+                    C'est très untile, surtout pour la caméra centré sur le joueur et la caméra fps.
+                </p>
+                <h2>Texte :</h2>
+                <p>
+                    Chaque texte affiché à l'écran, le niveau, les bonus actifs, le nombre de vies, l'accueil etc.
+                    utilise une police d'écriture personnalisée. Toutes ses différentes polices ont été téléchargé à
+                    l'adresse suivante : <a href="http://www.policedecaracteres.com/">police</a>.
+                </p>
+                <h2>Fenêtre :</h2>
+                <p>
+                    La taille de la fenêtre est, comme demandé, adaptative. Les différentes informations affichées
+                    durant une partie sont insérées grâce à du HTML et du CSS, en complément du Javascript.
+                </p>
+                <p>
+                    Une Skybox a été placée sur la scène. Il s'agit d'un cube, dont les faces intérieures ont été
+                    recouverte par des images.
+                </p>
+            </div>
+        </div>
+        <div id="Camera">
+            <h1 style="color:rgb(0, 0, 0)">CAMERA :</h1>
+            <div id="CameraTexte">
+                <p>
+                    Comme demandé, au moins deux positions caméra sont disponibles. La première, celle de base,
+                    est fixe et nous voyons ainsi le plateau de jeu et les différents objets la composant.
+                    Une seconde caméra est cette fois-ci fixe par rapport au vasseau et suit les mouvements de 
+                    celui-ci.
+                </p>
+                <img id="imageJeu" src="rapport/images/vue2.png">
+                <p>
+                    J'ai essayer d'intégré une troisième caméra, une vue FPS (First Personne Shooter),
+                    sans succès.Le code est encore disponible en commentaire de mon main.js.
+                </p>
+            </div>
+        </div>
+        <div id="Interaction">
+            <h1 style="color:rgb(0, 0, 0)">INTERACTION ET TOUCHE :</h1>
+            <div id="InteractionTexte">
+                <h2>Touche disponnible :</h2>
+                <p>
+                    Le joueur a à sa disponibilité un panel de touche lui permettant d'intérargir avec
+                    les objets de la scene. La liste des touches disponnible (sauf triche), sont disponible
+                    à n'importe quel moment du jeu en appuyant sur H. Faire H à l'écran titre du jeu eest plus 
+                    recommandé que de le faire durant une partie, l'écran d'acceuil se cachera alors permettant
+                    de mieux prendre connaissance des différentes touches.
+                    Des touches de triche, non affiché avec H, sont aussi disponible. Il sagit des touches
+                    J (joker suivant), K(détrure tout les ennemis) et I (invincible, vie en illimité).
+                </p>
+                <img id="imageJeu" src="rapport/images/Help.png">
+                <h2>Intéraction :</h2>
+                <p>
+                    Pour passé les différents écran du jeu, comme l'écran titre ou l'affichage d'un niveau,
+                    le joueur doit appuyer sur ENTER.
+                </p>
+                <img id="imageJeu" src="rapport/images/EcranTitre.png">
+                <h2>Différents objet (joker) :</h2>
+                <p>
+                    Durant une partie, le joueur auras la possibilité de ramassé certain objet, qui lui 
+                    donneront certains bonus. Ces objets ont tous une chance de "tomber" des ennemis lors de leur
+                    destruction.<br>
+                    Il existe 3 jokers:<br>
+                    <ul>
+                        <li>une boule <a style="color:green">verte</a> : 1 vie supplémentaire.</li>
+                        <li>une boule <a style="color:red">rouge</a> : Arme amélioré (fusil à pompe).</li>
+                        <li>une boule <a style="color:blue">bleu</a> : cadence de tir du vaisseau amélioré.</li>
+                    </ul>
+                    La touche de triche J permet de tous les parcourir.
+                </p>
+                <h2>Collision :</h2>
+                <p>
+                    Au départ, j'étais partie dans l'idée de réaliser un principe de collision avec 
+                    des Hitbox. Mais n'ayant pas réussi, je me contente d'utiliser la méthode "distanceTo()"
+                    de Object3D() de THREE.js.
+                    Cette méthode permet de comparer la distance d'un objet avec un autre, et ainsi de pouvoir
+                    déterminé quand un objet est assé près d'un autre pour qu'ils soit considéré comme en contact.
+                </p>
+            </div>
+        </div>
+        <div id="Audio">
+            <h1 style="color:rgb(0, 0, 0)">AUDIO :</h1>
+            <div id="AudioTexte">
+                <h2>Musique :</h2>
+                <p>
+                    Des musiques sont présentes à certains moments clés du jeu. Lors de l'écran d'accueil,
+                    lors de l'écran de GameOver et durant une partie, la musique principale (tirée du jeu
+                    Airwolf 2 sortie sur Commodore 64, Amstrad CPC et ZX Spectrum en 1987) tourne en boucle. <br>
+                    Toute les musiques du jeu son désactivable et réactivable avec la touche M.
+                </p>
+                <h2>Effet :</h2>
+                <p>
+                    Des effets sonores sont présent afin de marqué chaque évènement (collision, tir, avancement du 
+                    vaisseau, mort du vaisseau, joker ramassé etc.).
+                </p>
+            </div>
+        </div>
+        <div id="GamePlay">
+            <h1 style="color:rgb(0, 0, 0)">GAMEPLAY :</h1>
+            <div id="GamePlayTexte">
+                <h2>Principe :</h2>
+                <p>
+                    Au début du jeu, le joueur dispose de 3 vie, si il meurt 2 fois sans ramassé de joker vie, la 
+                    partie se termine et l'écran de game over est affiché.<br>
+                    <img id="imageJeu" src="rapport/images/GameOver.png"><br>
+                    Le joueur progresse dans un cadre qui détermine la zone de jeu. Si un objet traverse 
+                    un des bords du cadre, il se repositionne automatiquement de l'autre côté de celui-ci.<br>
+                    Le joueur, pour finir le jeu, doit détruire tout les ennemis composant chaque niveau du jeu 
+                    (10 niveau au total).
+                    Le nombre d'ennemi ainsi que leurs vitesses dépend du niveau actuel.<br>
+                    On icarne dans ce jeu un X-WING réalisé avec Blender puis exporté au format DAE:<br>
+                    <img id="imageJeu" src="rapport/images/Joueur.png"><br>
+                    Pendant certaines périodes clés (commencement d'un nouveau niveau, réaparition au centre du plateau 
+                    après la perte d'une vie), le joueur est intuable pendant 3 seconde, un effet de clignotement viens 
+                    souligné cet état d'invinciblité. Le joueur peut alors, durant cette période, traversé les ennemis 
+                    sans effet.
+                </p>
+                <h2>Ennemi :</h2>
+                <p>
+                    Il existe plusieurs sortent d'ennemi dans le jeu :
+                    <ul>
+                        <li>Les astéroids</li>
+                        <li>Vaisseau ennemi</li>
+                    </ul>
+                    <h3>Astéroid</h3>
+                    Les astéroid du jeu, une fois détruit, se sépare en trois plus petit, qui vont aussi
+                    légèrement plus vite. Tout les astre n'ont pas une trajectoire linéaire, mais ont une 
+                    trajectoire "courbé" déterminé aléatoirement à leurs créations.<br>
+                    Quand les asteroid sont prochent les uns des autres, ils changent de trajectoire.
+                    <img id="imageJeu" src="rapport/images/Astre.png">
+                    <h3>Vaisseau</h3>
+                    Les vaisseau ennemis ont la capacité de tiré, se déplace et change de direction 
+                    à intervalle régulière.
+                    <img id="imageJeu" src="rapport/images/VaisseauEnnemi.png">
+                </p>
+                <h2>HUD :</h2>
+                <p>
+                    Un HUD (Head up display) est présent et donne des informations essentiel au joueur pour le 
+                    bon déroulement d'une partie.<br>
+                    Le nombre de vie dont dispose le joueur :<br>
+                    <img id="hud" src="rapport/images/Vie.png"><br>
+                    Les joker actifs du niveau :<br>
+                    <img id="hud" src="rapport/images/Joker.png"><br>
+                    Un joker perd son activité de niveau en niveau, afin de ne pas rendre les choses trop 
+                    facile. La touche J permet de les tester.
+                </p>
+            </div>
+        </div>
+        <div id="feature">
+            <h1>FEATURES</h1>
+            <table id="Feature">
+                <thead>
+                    <tr>
+                        <th>Features</th>
+                        <th>Implémentation</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Rotation astre</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Puissance fusée/Explosion</td>
+                    <td><img id="pasCheck" src="rapport/images/PasCheck.jpg"></td>
+                </tr>
+                <tr>
+                    <td>Transition lvl et game over</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Touche H (aide de jeu)</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Menu de jeu</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Camera de base & camera secondaire</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Toute sorte de collision</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Mouvement des astre par rapport aux autres</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Mouvement de base du vaisseau</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Inertie du vaisseau</td>
+                    <td><img id="pasCheck" src="rapport/images/PasCheck.jpg"></td>
+                </tr>
+                <tr>
+                    <td>Missile qui se détruise au dela d'une distance</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Niveau de plus en plus dur</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Ennemi intelligent (déplacement, tir)</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Effet sonore</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Musique ambiante (désactivable)</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Interface de dev Dat.GUI</td>
+                    <td><img id="pasCheck" src="rapport/images/PasCheck.jpg"></td>
+                </tr>
+                <tr>
+                    <td>Différents jokers</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Triche (I, J, K)</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Décord 3D (skybox)</td>
+                    <td><img id="Check" src="rapport/images/Check.png"></td>
+                </tr>
+                <tr>
+                    <td>Post-processing</td>
+                    <td><img id="pasCheck" src="rapport/images/PasCheck.jpg"></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
