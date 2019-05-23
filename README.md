@@ -1,4 +1,4 @@
-# Try
+# Try it !
 You can try the game [here]() !
 
 # Explanation (fr)
