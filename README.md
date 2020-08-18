@@ -1,6 +1,7 @@
 # Try it !
 You can try the game [here]() !
-le site est en cours de construction, pas de panique ça arrive bientôt :) avec la documentation, qui est une page html
+
+Le site est en cours de construction, pas de panique ça arrive bientôt :) avec la documentation, qui est une page html
 
 # Explanation (fr)
 
